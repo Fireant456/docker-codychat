@@ -27,11 +27,11 @@ services:
       - "80:80"
 
   mysql:
-      image: mariadb
-      environment:
-        MYSQL_ROOT_PASSWORD: "yourrootpassword"
-        MYSQL_ROOT_HOST: '%'
-      volumes:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: "yourrootpassword"
+      MYSQL_ROOT_HOST: '%'
+    volumes:
       - ./db:/var/lib/mysql:Z
-      ports:
+    ports:
       - "3306:3306"
