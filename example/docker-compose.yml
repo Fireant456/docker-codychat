@@ -1,29 +1,37 @@
-php:
-  image: joebiellik/php
+version: "3"
 
-  volumes:
-    # Website files
-    - ./www:/var/www/html
-    # Uncomment to provide custom PHP configs
-    # - ./php/php.ini:/usr/local/etc/php/php.ini
-    # - ./php/php-fpm.conf:/usr/local/etc/php-fpm.conf
-    # - ./php/www.conf:/usr/local/etc/php-fpm.d/www.conf
+services:
+  whmcs:
+    image: fireant456/whmcs
+    volumes:
+      # Website files
+      - ./www:/var/www/html
+      # Uncomment to provide custom PHP configs
+      # - ./php/php.ini:/usr/local/etc/php/php.ini
+      # - ./php/php-fpm.conf:/usr/local/etc/php-fpm.conf
+      # - ./php/www.conf:/usr/local/etc/php-fpm.d/www.conf
+    expose:
+      - 9000
 
-  expose:
-    - 9000
+  nginx:
+    image: whmcs
+    links:
+      - whmcs
+    volumes:
+      # Website files
+      - ./www:/var/www/html
+      # nginx configuration
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/conf.d:/etc/nginx/conf.d
+    ports:
+      - "80:80"
 
-nginx:
-  image: nginx
-
-  links:
-    - php
-
-  volumes:
-    # Website files
-    - ./www:/var/www/html
-    # nginx configuration
-    - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-    - ./nginx/conf.d:/etc/nginx/conf.d
-
-  ports:
-    - "80:80"
+  mysql:
+      image: mariadb
+      environment:
+        MYSQL_ROOT_PASSWORD: "yourrootpassword"
+        MYSQL_ROOT_HOST: '%'
+      volumes:
+      - ./db:/var/lib/mysql:Z
+      ports:
+      - "3306:3306"
