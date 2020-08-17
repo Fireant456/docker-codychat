@@ -1,9 +1,9 @@
 # PHP FPM Template for WHMCS
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/fireant456/whmcs/.svg)](https://hub.docker.com/r/fireant456/whmcs/)
-[![Docker Stars](https://img.shields.io/docker/stars/fireant456/whmcs/.svg)](https://hub.docker.com/r/fireant456/whmcs/)
-[![Docker Build](https://img.shields.io/docker/automated/fireant456/whmcs/.svg)](https://hub.docker.com/r/fireant456/whmcs/)
-[![Docker Build Status](https://img.shields.io/docker/build/fireant456/whmcs/.svg)](https://hub.docker.com/r/fireant456/whmcs/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/fireant456/whmcs.svg)](https://hub.docker.com/r/fireant456/whmcs/)
+[![Docker Stars](https://img.shields.io/docker/stars/fireant456/whmcs.svg)](https://hub.docker.com/r/fireant456/whmcs/)
+[![Docker Build](https://img.shields.io/docker/automated/fireant456/whmcs.svg)](https://hub.docker.com/r/fireant456/whmcs/)
+[![Docker Build Status](https://img.shields.io/docker/build/fireant456/whmcs.svg)](https://hub.docker.com/r/fireant456/whmcs/)
 
 Latest offical [PHP-FPM](https://hub.docker.com/_/php/) container configured with basic extensions and [production settings](https://github.com/php/php-src/blob/master/php.ini-production). Includes [ionCube Loader](https://www.ioncube.com/loaders.php) php extension as required for WHMCS.
 
