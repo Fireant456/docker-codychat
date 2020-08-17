@@ -3,6 +3,8 @@ version: "3"
 services:
   whmcs:
     image: fireant456/whmcs
+    depends_on:
+      - mysql
     volumes:
       # Website files
       - ./www:/var/www/html
@@ -15,6 +17,8 @@ services:
 
   nginx:
     image: nginx
+    depends_on:
+      - whmcs
     links:
       - whmcs
     volumes:
