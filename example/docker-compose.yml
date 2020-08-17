@@ -14,7 +14,7 @@ services:
       - 9000
 
   nginx:
-    image: whmcs
+    image: nginx
     links:
       - whmcs
     volumes:
