@@ -8,6 +8,8 @@ services:
     volumes:
       # Website files
       - ./www:/var/www/html
+      # Cronjob directory
+      - ./cron:/etc/cron.d
       # Uncomment to provide custom PHP configs
       # - ./php/php.ini:/usr/local/etc/php/php.ini
       # - ./php/php-fpm.conf:/usr/local/etc/php-fpm.conf
