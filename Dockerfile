@@ -22,6 +22,7 @@ RUN set -xe \
         libonig-dev \
         python2.7 \
         zip \
+        cron \
 	&& docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd \
 	&& docker-php-ext-install -j$(nproc) pdo_mysql mysqli calendar intl \
 	&& docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ \
