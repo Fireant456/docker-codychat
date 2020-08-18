@@ -40,3 +40,5 @@ whmcs:
   ports:
     - "9000:9000"
 ```
+
+You will need to supply the WHMCS files and replace the index.php file in the www directory in the [example directory](https://github.com/Fireant456/docker-WHMCS/tree/master/example). Once you do this, connecting to your server on port 80 should give you WHMCS. If you do not supply the files downloaded from the WHMCS website then you should see the PHP test page.
