@@ -25,7 +25,7 @@ RUN set -xe \
         cron \
 	&& docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd \
 	&& docker-php-ext-install -j$(nproc) pdo_mysql mysqli calendar intl \
-	&& docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ \
+	&& docker-php-ext-configure gd \
     && docker-php-ext-install -j$(nproc) gd \
 	&& apt-get purge -y --auto-remove libicu-dev \
 	&& rm -rf /var/lib/apt/lists/*
@@ -41,8 +41,8 @@ RUN curl -sS https://raw.githubusercontent.com/php/php-src/master/php.ini-produc
 ADD https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz /tmp/
 RUN tar xvzfC /tmp/ioncube_loaders_lin_x86-64.tar.gz /tmp/ && \
 	php_ext_dir="$(php -i | grep extension_dir | head -n1 | awk '{print $3}')" && \
-	mv /tmp/ioncube/ioncube_loader_lin_7.4.so "${php_ext_dir}/" && \
-    echo "zend_extension = $php_ext_dir/ioncube_loader_lin_7.4.so" \
+	mv /tmp/ioncube/ioncube_loader_lin_7.3.so "${php_ext_dir}/" && \
+    echo "zend_extension = $php_ext_dir/ioncube_loader_lin_7.3.so" \
         > /usr/local/etc/php/conf.d/00-ioncube.ini && \
 	rm /tmp/ioncube_loaders_lin_x86-64.tar.gz && \
 	rm -rf /tmp/ioncube
