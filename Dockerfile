@@ -23,10 +23,14 @@ RUN set -xe \
         python2.7 \
         zip \
         cron \
+        libc-client-dev \
+        libkrb5-dev \
 	&& docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd \
 	&& docker-php-ext-install -j$(nproc) pdo_mysql mysqli calendar intl \
 	&& docker-php-ext-configure gd \
     && docker-php-ext-install -j$(nproc) gd \
+    && docker-php-ext-configure imap --with-kerberos --with-imap-ssl \
+    && docker-php-ext-install imap soap xmlrpc zip \
 	&& apt-get purge -y --auto-remove libicu-dev \
 	&& rm -rf /var/lib/apt/lists/*
 
