@@ -1,5 +1,7 @@
 # PHP FPM Template for WHMCS
 
+If using this container for WHMCS I suggest also adding my [Cron container](https://github.com/Fireant456/docker-PHP-Cron/) to your docker stack in order to enable required WHMCS automation.
+
 [![Docker Pulls](https://img.shields.io/docker/pulls/fireant456/whmcs.svg)](https://hub.docker.com/r/fireant456/whmcs/)
 [![Docker Stars](https://img.shields.io/docker/stars/fireant456/whmcs.svg)](https://hub.docker.com/r/fireant456/whmcs/)
 [![Docker Build](https://img.shields.io/docker/cloud/automated/fireant456/whmcs)](https://hub.docker.com/r/fireant456/whmcs/)
