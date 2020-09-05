@@ -29,7 +29,7 @@ services:
     ports:
       - "80:80"
 
-  cron:
+  cron:  #Use this container as an alternative to adding a cron job to execute the cron file via the docker daemon
     image: fireant456/php-cron
     depends_on:
       - whmcs
@@ -38,8 +38,6 @@ services:
     volumes:
       # Website files
       - ./www:/var/www/html
-      # Cronfile
-      - .cron/whmcs-cron:/etc/cron.d/docker-cron
 
   mysql:
     image: mariadb
