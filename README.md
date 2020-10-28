@@ -27,7 +27,7 @@ Latest offical v7.3 [PHP-FPM](https://hub.docker.com/_/php/) container configure
 
 See [example directory](https://github.com/Fireant456/docker-WHMCS/tree/master/example) for sample config file showing how to use this container with [nginx](https://hub.docker.com/_/nginx/).
 
-If using this container for WHMCS I suggest also adding my [Cron container](https://github.com/Fireant456/docker-PHP-Cron/) to your docker stack in order to enable required WHMCS automation. Alternatively you can add a cron job to your host machine like the following...
+If using this container for WHMCS I suggest also adding a cron job to your host machine like the following...
 
 `/etc/cron.d/whmcs`
 
