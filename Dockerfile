@@ -41,12 +41,10 @@ RUN curl -sS https://raw.githubusercontent.com/php/php-src/master/php.ini-produc
 	-e 's/^\(post_max_size =\).*/\1 25M/' \
 	> /usr/local/etc/php/php.ini
 
-# Install ioncube loader
-ADD https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz /tmp/
-RUN tar xvzfC /tmp/ioncube_loaders_lin_x86-64.tar.gz /tmp/ && \
-	php_ext_dir="$(php -i | grep extension_dir | head -n1 | awk '{print $3}')" && \
-	mv /tmp/ioncube/ioncube_loader_lin_7.3.so "${php_ext_dir}/" && \
-    echo "zend_extension = $php_ext_dir/ioncube_loader_lin_7.3.so" \
-        > /usr/local/etc/php/conf.d/00-ioncube.ini && \
-	rm /tmp/ioncube_loaders_lin_x86-64.tar.gz && \
-	rm -rf /tmp/ioncube
+# ioncube loader
+RUN curl -o ioncube.tar.gz "http://downloads3.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz" \
+    && mkdir -p ioncube \
+    && tar -xf ioncube.tar.gz -C ioncube --strip-components=1 \
+    && mv ioncube/ioncube_loader_lin_7.2.so `php-config --extension-dir` \
+    && rm -Rf ioncube.tar.gz ioncube \
+    && docker-php-ext-enable ioncube_loader_lin_7.2
