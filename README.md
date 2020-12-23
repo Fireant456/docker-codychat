@@ -5,7 +5,7 @@
 [![Docker Build](https://img.shields.io/docker/cloud/automated/fireant456/codychat)](https://hub.docker.com/r/fireant456/codychat/)
 [![Docker Build Status](https://img.shields.io/docker/cloud/build/fireant456/codychat)](https://hub.docker.com/r/fireant456/codychat/)
 
-Latest offical v7.3 [PHP-FPM](https://hub.docker.com/_/php/) container configured with basic extensions and [production settings](https://github.com/php/php-src/blob/master/php.ini-production). Includes [ionCube Loader](https://www.ioncube.com/loaders.php) php extension as required for CodyChat.
+Latest offical v7.2 [PHP-FPM](https://hub.docker.com/_/php/) container configured with basic extensions and [production settings](https://github.com/php/php-src/blob/master/php.ini-production). Includes [ionCube Loader](https://www.ioncube.com/loaders.php) php extension as required for CodyChat.
 
 ## Changes to offical container
 
@@ -26,15 +26,6 @@ Latest offical v7.3 [PHP-FPM](https://hub.docker.com/_/php/) container configure
 ## Configuration
 
 See [example directory](https://github.com/Fireant456/docker-codychat/tree/master/example) for sample config file showing how to use this container with [nginx](https://hub.docker.com/_/nginx/).
-
-If using this container for codychat I suggest also adding a cron job to your host machine like the following...
-
-`/etc/cron.d/codychat`
-
-```
-*/5 * * * * root /usr/bin/docker exec codychat_codychat_1 /usr/local/bin/php -q /var/www/html/crons/cron.php
-
-```
 
 ## Quickstart
 
