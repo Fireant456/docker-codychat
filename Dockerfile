@@ -1,4 +1,4 @@
-FROM php:7.3.21-fpm
+FROM php:7.2-fpm
 
 # Install extensions
 RUN set -xe \
